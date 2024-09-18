@@ -1,6 +1,6 @@
 # <p align="center">POLICY EVALUATION...</p>
 
-### REGISTER NUMBER :212222240097
+### REGISTER NUMBER :212222240064
 
 ## AIM :
 
@@ -202,7 +202,7 @@ python
  # Create your own policy
 
 pi_2 = lambda s: {
-    0:LEFT, 1:LEFT, 2:LEFT, 3:RIGHT, 4:RIGHT, 5:RIGHT, 6:RIGHT
+    0:LEFT, 1:RIGHT, 2:LEFT, 3:RIGHT, 4:LEFT, 5:RIGHT, 6:LEFT
 }[s]
 
 print_policy(pi_2, P, action_symbols=('<', '>'), n_cols=7)
@@ -307,22 +307,22 @@ else:
 
 #### Policy-2 :
 
-![Screenshot 2024-08-28 114729](https://github.com/user-attachments/assets/7282da02-63eb-4854-b9e5-bbf6f2263c44)
+![Screenshot 2024-09-04 112917](https://github.com/user-attachments/assets/749fcb0a-1845-467f-9344-0ca17781122e)
 
 
 #### Policy-2 State-value function :
-![Screenshot 2024-08-28 114739](https://github.com/user-attachments/assets/9b387beb-f557-42b3-a22b-6fe09e6a8da8)
+
+![Screenshot 2024-09-04 113042](https://github.com/user-attachments/assets/eb63753f-aaf3-4cfe-b59f-6c030375ea10)
 
 
 #### the probability of success and the mean return of the second policy :
 
-![Screenshot 2024-08-28 114804](https://github.com/user-attachments/assets/0240f01a-65e4-4b5f-8bc0-ccc5f136a0f1)
+![Screenshot 2024-09-04 113050](https://github.com/user-attachments/assets/6e794301-c0d9-457c-86a9-370f1f3356c2)
 
 ##### Comparing the two policies:
+
+![Screenshot 2024-09-04 113744](https://github.com/user-attachments/assets/a2e83043-5cc7-4386-833a-5fb2579d751e)
  
-![Screenshot 2024-08-28 114831](https://github.com/user-attachments/assets/fd2054e0-64df-44a8-924a-de9763007d75)
-
-
 ## RESULT :
 
 Thus, the Given Policy has been Evaluated and Optimal Policy has been Computed using Python Programming and execcuted successfully.
