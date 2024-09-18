@@ -59,15 +59,9 @@ The transition probabilities for each action are as follows:
 ![out2](https://github.com/anto-richard/rl-policy-evaluation/assets/93427534/0fb0fe63-3a14-416e-b7fc-fdf3bcb495ba)
 
 
-###
-
-python
-
+### Program :
+```
 pip install git+https://github.com/mimoralea/gym-walk#egg=gym-walk
-
-
-
-python
 
 import warnings ; warnings.filterwarnings('ignore')
 
@@ -81,11 +75,8 @@ warnings.filterwarnings('ignore', category=DeprecationWarning)
 np.set_printoptions(suppress=True)
 random.seed(123); np.random.seed(123)
 
-
-
 ### Reference https://github.com/mimoralea/gym-walk
 
-python
 
 def print_policy(pi, P, action_symbols=('<', 'v', '>', '^'), n_cols=4, title='Policy:'):
     print(title)
@@ -100,9 +91,6 @@ def print_policy(pi, P, action_symbols=('<', 'v', '>', '^'), n_cols=4, title='Po
         if (s + 1) % n_cols == 0: print("|")
 
 
-
-python
-
 def print_state_value_function(V, P, n_cols=4, prec=3, title='State-value function:'):
     print(title)
     for s in range(len(P)):
@@ -114,9 +102,6 @@ def print_state_value_function(V, P, n_cols=4, prec=3, title='State-value functi
             print(str(s).zfill(2), '{}'.format(np.round(v, prec)).rjust(6), end=" ")
         if (s + 1) % n_cols == 0: print("|")
 
-
-
-python
 
 def probability_success(env, pi, goal_state, n_episodes=100, max_steps=200):
     random.seed(123); np.random.seed(123) ; env.seed(123)
@@ -130,9 +115,6 @@ def probability_success(env, pi, goal_state, n_episodes=100, max_steps=200):
     return np.sum(results)/len(results)
 
 
-
-python
-
 def mean_return(env, pi, n_episodes=100, max_steps=200):
     random.seed(123); np.random.seed(123) ; env.seed(123)
     results = []
@@ -145,11 +127,7 @@ def mean_return(env, pi, n_episodes=100, max_steps=200):
             steps += 1
     return np.mean(results)
 
-
-
 ## Slippery Walk Five MDP:
-
-python
 
 env = gym.make('SlipperyWalkFive-v0')
 P = env.env.P
@@ -157,28 +135,13 @@ init_state = env.reset()
 goal_state = 6
 LEFT, RIGHT = range(2)
 
-
-
-python
-
 P
 
-
-
-python
-
 init_state
-
-
-
-python
 
 state, reward, done, info = env.step(RIGHT)
 print("state:{0} - reward:{1} - done:{2} - info:{3}".format(state, reward, done, info))
 
-
-
-python
 
 # First Policy
 pi_1 = lambda s: {
@@ -187,17 +150,10 @@ pi_1 = lambda s: {
 print_policy(pi_1, P, action_symbols=('<', '>'), n_cols=7)
 
 
-
-python
-
 # Find the probability of success and the mean return of the first policy
 print('Reaches goal {:.2f}%. Obtains an average undiscounted return of {:.4f}.'.format(
     probability_success(env, pi_1, goal_state=goal_state)*100,
     mean_return(env, pi_1)))
-
-
-
-python
 
  # Create your own policy
 
@@ -207,17 +163,10 @@ pi_2 = lambda s: {
 
 print_policy(pi_2, P, action_symbols=('<', '>'), n_cols=7)
 
-
-python
-
 ## Find the probability of success and the mean return of you your policy
 print('Reaches goal {:.2f}%. Obtains an average undiscounted return of {:.4f}.'.format(
       probability_success(env, pi_2, goal_state=goal_state)*100,
       mean_return(env, pi_2)))
-
-
-
-python
 
 # Calculate the success probability and mean return for both policies
 success_prob_pi_1 = probability_success(env, pi_1, goal_state=goal_state)
@@ -226,12 +175,7 @@ mean_return_pi_1 = mean_return(env, pi_1)
 success_prob_pi_2 = probability_success(env, pi_2, goal_state=goal_state)
 mean_return_pi_2 = mean_return(env, pi_2)
 
-
-
-
 ## Policy Evaluation:
-
-python
 
 def policy_evaluation(pi, P, gamma=1.0, theta=1e-10):
     prev_V = np.zeros(len(P), dtype=np.float64)
@@ -246,26 +190,14 @@ def policy_evaluation(pi, P, gamma=1.0, theta=1e-10):
       prev_V = V.copy()
     return V
 
-
-
-python
-
 # Code to evaluate the first policy
 V1 = policy_evaluation(pi_1, P)
 print_state_value_function(V1, P, n_cols=7, prec=5)
-
-
-
-python
 
 # Code to evaluate the second policy
 # Write your code here
 V2 = policy_evaluation(pi_2, P)
 print_state_value_function(V2, P, n_cols=7, prec=5)
-
-
-
-python
 
 # Comparing the two policies
 
@@ -289,7 +221,7 @@ else:
   print("Both policies have their merits.")
 
 
-
+```
 ## OUTPUT :
 
 #### Policy-1 : 
